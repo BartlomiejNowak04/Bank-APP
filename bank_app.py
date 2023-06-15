@@ -17,18 +17,6 @@ transfer_entry = '#024e30'
 withdraw_bg = '#4b0222'
 
 
-# class Database:
-#     def __init__(self, database):
-#         self.connection = sqlite3.connect(database)
-#         self.cursor = self.connection.cursor()
-#
-#
-#
-#     def create_table(self, info: str):
-#         self.cursor.execute(info)
-#         self.connection.commit()
-
-
 class Gui:
     def __init__(self, database):
         self.done_label_withdraw = None
@@ -176,14 +164,7 @@ class Gui:
                              font=self.disclaimer_font, background=bg_color_2, foreground=bg_color_1)
             wrong.grid()
 
-        # pass_to_check = None
-        # login_to_check = None
-        # if login_to_check == self.login_entry_login:
-        #     print('aaaa')
-        #     print(login_to_check, self.login_entry_login)
-        # if pass_to_check == self.password_entry_login:
-        #     print(pass_to_check, self.password_entry_login)
-
+   
     def balance(self, login):
         self.cursor.execute(f"SELECT balance FROM bank_user WHERE login = '{login}'")
         balances = self.cursor.fetchall()
@@ -282,15 +263,7 @@ class Gui:
             self.done_label_withdraw.grid(row=0, column=0, sticky='n', pady=340)
             self.withdraw_confirm_button.grid_forget()
 
-    # def destroy(self):
-    #     time.sleep(4)
-    #     self.done_label_withdraw.grid_forget()
-
-    # new_balance_minus = self.selecting_user(login, password) - amount
-    # self.cursor.execute(f"UPDATE user_info SET balance = {new_balance_minus} WHERE login = '{login}'")
-    # self.cursor.execute(f"UPDATE user_info SET balance = balance + {amount} WHERE login = '{to_someone}'")
-    # self.connection.commit()
-
+   
     def load_title_frame(self):
         self.clear_frame(sing_frame)
         title_frame.tkraise()
@@ -587,8 +560,6 @@ d.load_title_frame()
 query = '''CREATE TABLE bank_user (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, surname TEXT, age DATE, login TEXT,
          password TEXT, balance INTEGER) '''
 
-# print('done')
-# db.create_table(query)
 
 print(f'to jest entry login --->>{d.login_entry_login}')
 
